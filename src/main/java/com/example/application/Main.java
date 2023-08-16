@@ -12,11 +12,14 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan("com.example")
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(Main.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Main.class);
 
         MyComponent myComponent = context.getBean(MyComponent.class);
 
         myComponent.sayHello();
+
+        context.close();
+
     }
 
     @Bean
